@@ -16,6 +16,6 @@ public class Student {
     String college;
     String field;
     String group1;
-    String group0;
+    String group2;
 
 }
