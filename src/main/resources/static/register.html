@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>欢迎报名</title>
+    <link href="./module/layui/css/layui.css" rel="stylesheet">
+    <style>
+        .layui-layer-msg {
+            color: red;
+        }
+
+        *,
+        *::after,
+        *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(img/R-C.jfif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #FFFFFF;
+        }
+
+        /* chrome */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        /* 火狐浏览器 */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .main {
+            width: 100%;
+            min-height: 120vh;
+            overflow: hidden;
+            padding: 2rem;
+            /* 将主要区域的内边距设置为flex布局 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #box {
+            width: 100%;
+            max-width: 1020px;
+            height: 120vh;
+            position: relative;
+
+            background-image: url("img/bg.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 3.3rem;
+            box-shadow: 0 0 20px #b7b2a9;
+        }
+
+        .inner-box {
+            position: absolute;
+            width: calc(100% - 4.1rem);
+            height: calc(100% - 4.1rem);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .forms-wrap {
+            position: relative;
+            height: 100%;
+            width: 45%;
+            left: 0;
+            top: 0;
+
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            transition: 0.8s ease-in-out;
+        }
+
+        form {
+            max-width: 300px;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: space-evenly;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            transition: opacity 0.02s 0.4s;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h4 {
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            color: floralwhite;
+        }
+
+        .heading h2 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: aqua;
+        }
+
+        .heading h6 {
+            font-size: 0.75rem;
+            font-weight: 400;
+            display: inline;
+            color: aqua;
+        }
+
+        .toggle {
+            color: white;
+            text-shadow: 0 0 20px #bababa;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .toggle:hover {
+            color: #8371f6;
+        }
+
+        .layui-form-item {
+            position: relative;
+            height: 37px;
+            margin-bottom: 2rem;
+        }
+
+        .layui-form-select {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .layui-form-select dl {
+            /* background-color: transparent;
+            opacity:0.0;  */
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .layui-form-select dl dd:hover {
+            /* background-color: transparent;
+            opacity: 0.2;  */
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /*.layui-form-select dl {*/
+        /*display: none;*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*top: 42px;*/
+        /*padding: 5px 0;*/
+        /*z-index: 899;*/
+        /*min-width: 100%;*/
+        /*border: 1px solid #d2d2d2;*/
+        /*max-height: 300px;*/
+        /*overflow-y: auto;*/
+        /*background-color: #fff;*/
+        /*border-radius: 2px;*/
+        /*box-shadow: 0 2px 4px rgb(0 0 0 / 12%);*/
+        /*box-sizing: border-box;*/
+        /*}*/
+
+        /* .layui-edge {
+            display: none;
+        } */
+
+        .layui-input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background: none;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #bbbbbb;
+
+            color: #FFFFFF;
+            padding: 0;
+            font-size: 0.95rem;
+            transition: 0.4s;
+        }
+
+        .layui-form-label {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.95rem;
+            color: #03e9f4;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .layui-input:active {
+            border-bottom: 2px solid #03e9f4 !important;
+        }
+
+        .layui-input:hover {
+            border-bottom: 2px solid #03e9f4 !important;
+        }
+
+        /* 当输入框处于活动状态时，其后面的label元素 */
+        /* .layui-input.active+label {
+            font-size: 0.75rem;
+            top: -2px;
+        } */
+        .submit-btn {
+            margin-left: 0;
+        }
+
+        /* .layui-btn {
+            display: ;
+            width: 100%;
+            height: 43px;
+            background-color: #151111;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.8rem;
+            margin-bottom: 2rem;
+            transition: 0.3s;
+        } */
+        .layui-input-inline {}
+
+        @media screen and (max-width: 450px) {
+            .layui-form-item .layui-input-inline {
+                display: block;
+                float: none;
+                left: -3px;
+                width: 100% !important;
+                margin: 0 0 10px 112px;
+            }
+        }
+
+        .carousel {
+            /* 设置圆角为2rem */
+            border-radius: 2rem;
+            /* 设置内边距为2rem */
+            padding: 2rem;
+            /* position: absolute; */
+            /* 设置溢出隐藏 */
+            overflow: hidden;
+            height: 100%;
+            /* width: 55%; */
+            box-shadow: 0 0 5px #b7b2a9;
+            background-color: transparent;
+            display: grid;
+            /* 设置过渡效果为0.8秒 */
+            transition: 0.8s ease-in-out;
+            /* 设置为相对定位 */
+            position: relative;
+            /* 设置网格行模板 */
+            grid-template-rows: auto 1fr;
+        }
+
+        /* 选择所有.text-slider元素 */
+        .text-slider {
+            /* 设置为flex布局 */
+            display: flex;
+            /* 垂直居中 */
+            align-items: center;
+            /* 水平居中 */
+            justify-content: center;
+            /* 设置主轴方向为垂直 */
+            flex-direction: column;
+        }
+
+        /* 选择所有.text-wrap元素 */
+        .text-wrap {
+            /* 设置最大高度为2.2rem */
+            max-height: 2.2rem;
+            /* 超出部分隐藏 */
+            overflow: hidden;
+            /* 底部外边距为2.5rem */
+            margin-bottom: 2.5rem;
+        }
+
+        /* 选择所有.text-group元素 */
+        .text-group {
+            /* 设置为flex布局 */
+            display: flex;
+            /* 设置主轴方向为垂直 */
+            flex-direction: column;
+            /* 文本居中 */
+            text-align: center;
+            /* 初始位置为不偏移 */
+            transform: translateY(0);
+            /* 过渡效果为0.5秒 */
+            transition: 0.5s;
+        }
+
+        /* 选择所有.text-group元素下的h2元素 */
+        .text-group h2 {
+            /* 设置行高为2.2rem */
+            line-height: 2.2rem;
+            /* 设置字体粗细为600 */
+            font-weight: 600;
+            /* 设置字体大小为1.6rem */
+            font-size: 1.6rem;
+        }
+
+        /* 选择所有.bullets元素 */
+        .bullets {
+            /* 顶部外边距为20px */
+            margin-top: 20px;
+            /* 设置为flex布局 */
+            display: flex;
+            /* 垂直居中 */
+            align-items: center;
+            /* 水平居中 */
+            justify-content: center;
+        }
+
+        /* 选择所有.bullets元素下的span元素 */
+        .bullets span {
+            /* 设置为块级元素 */
+            display: block;
+            /* 宽度为0.5rem */
+            width: 0.5rem;
+            /* 高度为0.5rem */
+            height: 0.5rem;
+            /* 圆角为0.2rem */
+            border-radius: 0.2rem;
+            /* 背景颜色为白色 */
+            background-color: white;
+            /* 设置阴影 */
+            box-shadow: 20px #b7b2a9;
+            /* 左右外边距为0.25rem */
+            margin: 0 0.25rem;
+            /* 鼠标指针为手型 */
+            cursor: pointer;
+            /* 过渡效果为0.3秒 */
+            transition: .3s;
+        }
+
+        /* 选择所有.bullets元素下的.active元素 */
+        .bullets span.active {
+            /* 宽度为1.1rem */
+            width: 1.1rem;
+            /* 背景颜色为aqua */
+            background-color: aqua;
+            /* 圆角为1rem */
+            border-radius: 1rem;
+        }
+
+        /* 当屏幕宽度小于等于850px时生效 */
+        @media (max-width:850px) {
+
+            /* 选择所有.box元素 */
+            #box {
+                /* 高度自适应 */
+                height: auto;
+                /* 最大宽度为550px */
+                max-width: 550px;
+                /* 溢出隐藏 */
+                overflow: hidden;
+                background-size: cover;
+            }
+
+            /* 选择所有.inner-box元素 */
+            .inner-box {
+                /* 位置为默认值 */
+                position: static;
+                /* 变换为默认值 */
+                transform: none;
+                /* 宽度为默认值 */
+                width: revert;
+                /* 高度为默认值 */
+                height: revert;
+                /* 上下左右内边距为2rem */
+                padding: 2rem;
+            }
+
+            /* 选择所有.forms-wrap元素 */
+            .forms-wrap {
+                /* 位置为默认值 */
+                position: revert;
+                /* 宽度为100% */
+                width: 100%;
+                /* 高度为100% */
+                height: 100%;
+            }
+
+            /* 选择所有.form元素 */
+            .form {
+                /* 最大宽度为默认值 */
+                max-width: revert;
+                /* 上内边距为1.5rem，左右内边距为2.5rem，下内边距为2rem */
+                padding: 1.5rem 2.5rem 2rem;
+                /* 过渡效果为0.8秒，缓动函数为ease-in-out，透明度过渡效果为线性 */
+                transition: transform 0.8s ease-in-out, opacity 0.4s linear;
+            }
+
+            /* 选择所有.heading元素 */
+            .heading {
+                /* 上下外边距为2rem，左右外边距为0 */
+                margin: 2rem 0;
+            }
+
+            /* 选择所有.carousel元素 */
+            .carousel {
+                /* 位置为默认值 */
+                position: revert;
+                /* 高度自适应 */
+                height: auto;
+                /* 宽度为100% */
+                width: 100%;
+                /* 上下内边距为3rem，左右内边距为2rem */
+                padding: 3rem 2rem;
+                /* 设置为flex布局 */
+                display: flex;
+            }
+
+            /* 选择所有.images-wrapper元素 */
+            .images-wrapper {
+                /* 隐藏 */
+                display: none;
+            }
+
+            /* 选择所有.text-slider元素 */
+            .text-slider {
+                /* 宽度为100% */
+                width: 100%;
+            }
+        }
+
+        /* 当屏幕宽度小于等于530px时生效 */
+        @media (max-width:530px) {
+
+            /* 选择所有main元素 */
+            .main {
+                /* 上下左右内边距为1rem */
+                padding: 1rem;
+            }
+
+            /* 选择所有.box元素 */
+            #box {
+                /* 边框半径为2rem */
+                border-radius: 2rem;
+            }
+
+            /* 选择所有.inner-box元素 */
+            .inner-box {
+                /* 上下左右内边距为1rem */
+                padding: 1rem;
+                /* background-image: url(img/bg.gif);
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: cover; */
+            }
+
+            /* 选择所有.carousel元素 */
+            .carousel {
+                /* 上下内边距为1.5rem，左右内边距为1rem */
+                padding: 1.5rem 1rem;
+                /* 边框半径为1.6rem */
+                border-radius: 1.6rem;
+            }
+
+            /* 选择所有.text-wrap元素 */
+            .text-wrap {
+                /* 下外边距为1rem */
+                margin-bottom: 1rem;
+            }
+
+            /* 选择所有.text-group元素下的h2元素 */
+            .text-group h2 {
+                /* 字体大小为1.2rem */
+                font-size: 1.2rem;
+            }
+
+            /* 选择所有form元素 */
+            form {
+                /* 上内边距为1rem，左右内边距为2rem，下内边距为1.5rem */
+                padding: 1rem 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="layui-container" id="box">
+            <div class="layui-row">
+                <div class="inner-box">
+                    <div class="layui-col-sm6 forms-wrap">
+                        <form class="layui-form" action="">
+                            <div class="logo">
+                                <h4>2023网络协会</h4>
+                            </div>
+                            <div class="heading">
+                                <h2>欢迎报名？</h2>
+                                <h6>Already signed up?</h6>
+                                <a href="index.html" class="toggle">Home</a>
+                            </div>
+                            <div class="actual-form">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="name" lay-verify="required|name" placeholder="请输入姓名"
+                                            autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">学号</label>
+                                    <div class="layui-input-block">
+                                        <input type="number" name="stuNum" lay-verify="required|stuNum"
+                                            placeholder="请输入学号" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">QQ</label>
+                                    <div class="layui-input-block">
+                                        <input type="number" name="qqNum" lay-verify="required|qqNum"
+                                            placeholder="请输入QQ号" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">学校</label>
+                                    <div class="layui-input-block">
+                                        <input type="radio" name="school" value="校区" title="校区">
+                                        <input type="radio" name="school" value="苏理工" title="苏理工" checked>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">学院</label>
+                                    <div class="layui-input-block">
+                                        <select name="college" lay-verify="required">
+                                            <option value=""></option>
+                                            <option value="电信院">电信院</option>
+                                            <option value="商学院">商学院</option>
+                                            <option value="机动院">机动院</option>
+                                            <option value="冶材院">冶材院</option>
+                                            <option value="船建院">船建院</option>
+                                            <option value="公教院">公教院</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">专业</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="field" lay-verify="required|field"
+                                            placeholder="请输入所在专业" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">意向1</label>
+                                    <div class="layui-input-block">
+                                        <select name="group1" lay-verify="required">
+                                            <option value=""></option>
+                                            <option value="软件组">软件组</option>
+                                            <option value="硬件组">硬件组</option>
+                                            <option value="会议组">会议组</option>
+                                            <option value="网络组">网络组</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">意向2</label>
+                                    <div class="layui-input-block">
+                                        <select name="group2" lay-verify="required">
+                                            <option value=""></option>
+                                            <option value="软件组">软件组</option>
+                                            <option value="硬件组">硬件组</option>
+                                            <option value="会议组">会议组</option>
+                                            <option value="网络组">网络组</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-inline">
+                                        <button class="layui-btn preservation" lay-submit lay-filter="formDemo">提交</button>
+                                        <button type="reset" class="layui-btn">重置</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="layui-col-sm6 carousel">
+                        <div class="layui-carousel images-wrapper">
+                            <div carousel-item>
+                                <div style="background-image: url(img/login1.jpg); background-size: cover;"
+                                    class="image img-1"></div>
+                                <div style="background-image: url(img/login2.jpg); background-size: cover;"
+                                    class="image img-2"></div>
+                                <div style="background-image: url(img/login3.jpg); background-size: cover;"
+                                    class="image img-3"></div>
+                            </div>
+                        </div>
+                        <div class="text-slider">
+                            <div class="text-wrap">
+                                <div class="text-group">
+                                    <h2>开始你的学习旅程</h2>
+                                    <h2>准备创造奇迹吧</h2>
+                                    <h2>学习是一切创建力的开始</h2>
+                                </div>
+                            </div>
+                            <div class="bullets">
+                                <span class="active" data-value="0"></span>
+                                <span data-value="1"></span>
+                                <span data-value="2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./module/layui/layui.js"></script>
+    <script>
+        // 获取文本滑动元素
+        const textSlider = document.querySelector('.text-group')
+        // 获取页面中所有的小圆点元素
+        const bullets = document.querySelectorAll('.bullets span')
+        layui.use(['carousel', 'form', 'jquery', 'layer'], function () {
+            // var $ = layui.$ //重点处
+            var $ = layui.jquery;
+            var carousel = layui.carousel;
+            var form = layui.form;
+            var layer = layui.layer;
+
+            // 轮播图
+            carousel.render({
+                elem: '.images-wrapper'
+                , width: '100%'    // 设置容器宽度
+                , arrow: 'always'  // 始终显示箭头
+                //,anim: 'updown'  // 切换动画方式
+                , change: function (obj) { // 触发轮播切换事件(v2.7.0 新增)
+                    // console.log(obj); // 返回结果跟上述 change 事件相同
+                    // console.log(obj.index); //当前条目的索引
+                    var index = obj.index;
+                    // 将文本滑动元素的transform属性设置为当前索引值对应的位置
+                    textSlider.style.transform = `translateY(${-(obj.index) * 2.2}rem)`
+                    // $('span[data-value= index]').addClass('active');
+                    $(bullets).click(function () {
+                        $(bullets).removeClass('active'); // 移除其他小圆点的active类  
+                        $(this).addClass('active'); // 给当前点击的小圆点添加active类 
+                    });
+                }
+            });
+
+            // 自定义验证规则
+            form.verify({
+                // 姓名
+                name: function (value, elem) {
+                    var userName = /^[\u4E00-\u9FA5]{2,4}(·[\u4E00-\u9FA5]{2,10}){0,2}$/;
+                    if (!userName.test(value)) {
+                        return '姓名信息有误';
+                        // return false;
+                    }
+                },
+                // 学号stuNum
+                stuNum: function (value, elem) {
+                    if (!/^\d{12}$/.test(value)) {
+                        return '请重新输入学号';
+                    }
+                },
+                // qq号qqNum
+                qqNum: function (value, elem) {
+                    if (!/(.+){8,12}$/.test(value)) {
+                        return '请重新输入QQ号';
+                    }
+                },
+                // 专业（长度 2~12位）
+                field: function (value, elem) {
+                    var userField = /^[\u4E00-\u9FA5]{2,12}(·[\u4E00-\u9FA5]{2,10}){0,2}$/;
+                    if (!userField.test(value)) {
+                        return '专业信息有误';
+                    }
+                }
+            });
+
+            // 表单 - 提交
+            form.on('submit(formDemo)', function (data) {
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // layer.msg(JSON.stringify(data.field));
+                // 获取表单数据
+                var formData = data.field;
+                let params = JSON.stringify(formData);
+                // console.log(JSON.stringify(formData));
+                $.ajax({
+                    url: "/student/information",
+                    cache: false,
+                    async: true,
+                    data: params,
+                    type: "POST",
+                    // contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    contentType: 'application/json; charset=UTF-8',
+                    success: function (data) {
+                        // alert(data.msg);
+                        layer.msg("提交成功", { time: 1500, icon: 1 });
+                        // 成功的时候
+                        // 单击之后提交按钮不可选,防止重复提交
+                        var DISABLED = 'layui-btn-disabled';
+                        // 增加样式
+                        $('.preservation').addClass(DISABLED);
+                        // 增加属性
+                        $('.preservation').attr('disabled', 'disabled');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        if (XMLHttpRequest.status == 403) {
+                            console.log("您没有权限访问，请联系管理员！");
+                            layer.msg("您没有权限访问，请联系管理员！")
+                        } else if (XMLHttpRequest.status == 500) {
+                            console.log("服务器内部错误！");
+                            layer.msg("服务器内部错误！")
+                        } else {
+                            console.log("服务器未知错误！");
+                            layer.msg("服务器未知错误！")
+                        }
+                        // 失败的时候
+                        // 单击之后提交按钮不可选,防止重复提交
+                        var DISABLED = 'layui-btn-disabled';
+                        $('.preservation').removeClass(DISABLED);
+                        $('.preservation').removeAttr('disabled');
+                    }
+                });
+                // 阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                return false;    //一定要加上这一句，这样ajax方法才能正确执行，且表单不会自动刷新
+            });
+        });
+        // // 为所有小圆点元素添加点击事件监听器
+        // bullets.forEach(bullet => {
+        //     bullet.addEventListener('click', moveSlider)
+        // })
+    </script>
+</body>
+
+</html>

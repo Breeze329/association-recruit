@@ -1,0 +1,15 @@
+server:
+    port: 8080
+spring:
+    application:
+        name: association-recruit
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://${association.recruit.host}:3306/student_recruit?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://mysql:3306/student_recruit?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+        username: root
+#        password: ${association.recruit.pwd}
+        password: 1234
+
+mybatis-plus:
+    type-aliases-package: com.example.coProject.bean

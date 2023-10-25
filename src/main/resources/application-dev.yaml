@@ -1,0 +1,8 @@
+
+
+
+
+association:
+        recruit:
+          host: mysql
+          pwd: 1234
